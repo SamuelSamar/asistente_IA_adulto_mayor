@@ -1,0 +1,7 @@
+.venv/
+.env
+__pycache__/
+ocr-ruc-9bb6b695ec5d.json
+database/asistente.db
+*.mp3
+*.wav
