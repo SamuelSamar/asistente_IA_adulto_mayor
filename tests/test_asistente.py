@@ -19,7 +19,7 @@ def test_registro_perfil_base_datos():
     assert perfil_recuperado["medications"] == meds_prueba, "Los medicamentos no coinciden"
 
 def test_modelo_groq_configurado():
-    modelo_esperado = "openai/gpt-oss-20b"
+    modelo_esperado = "llama-3.1-8b-instant"
     assert GROQ_MODEL == modelo_esperado, f"Configuración errónea. Esperado: {modelo_esperado}, Actual: {GROQ_MODEL}"
 
 def test_database_path_format():
