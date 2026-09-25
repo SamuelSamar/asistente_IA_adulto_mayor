@@ -26,3 +26,13 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    
+    - name: Crear paquete de entrega
+      run: |
+        zip -r asistente-adulto-mayor.zip . -x ".git/*"
+    
+    - name: Guardar artefacto
+      uses: actions/upload-artifact@v4
+      with:
+        name: asistente-adulto-mayor
+        path: asistente-adulto-mayor.zip
