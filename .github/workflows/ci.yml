@@ -30,7 +30,7 @@ jobs:
     - name: Ejecutar pruebas unitarias
       run: |
         pip install pytest
-        pytest
+        python -m pytest
     
     - name: Crear paquete de entrega
       run: |
