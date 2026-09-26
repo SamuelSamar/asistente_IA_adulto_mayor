@@ -46,3 +46,4 @@ def chat(message, history, user_id):
 
     # return generate_response(conversacion)
     return generate_response_groq(conversacion)
+

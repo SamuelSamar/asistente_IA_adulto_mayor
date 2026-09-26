@@ -4,7 +4,7 @@ import streamlit as st
 from datetime import datetime
 
 def obtener_cliente():
-    """Conecta a Sheets desde la nube o desde el archivo local"""
+    # Conectar a Sheets desde la nube o desde el archivo local
     if "GCP_CREDENTIALS" in st.secrets:
         credenciales = json.loads(st.secrets["GCP_CREDENTIALS"])
         return gspread.service_account_from_dict(credenciales)
