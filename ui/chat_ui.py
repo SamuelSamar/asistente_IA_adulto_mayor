@@ -19,3 +19,5 @@ def render_chat():
 
     mensaje_voz = st.audio_input("🎙️ O graba un mensaje de voz aqui:", key=f"audio_{st.session_state.audio_key}")
     return mensaje_texto, mensaje_voz
+
+    

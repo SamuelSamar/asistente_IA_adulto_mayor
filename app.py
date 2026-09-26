@@ -43,6 +43,8 @@ if perfil["guardar"]:
         else:
             st.error(f"Error al enviar correo: {msg}")
 
+    st.rerun()
+
 mensaje_texto, mensaje_voz = render_chat()
 if "audio_pendiente" in st.session_state and st.session_state.audio_pendiente:
     st.audio(st.session_state.audio_pendiente, format="audio/mp3", autoplay=True)

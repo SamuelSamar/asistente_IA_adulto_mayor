@@ -31,3 +31,4 @@ def render_profile_form():
         "medications": medications_str.strip(),
         "guardar": guardar
     }
+
