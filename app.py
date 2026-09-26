@@ -1,3 +1,4 @@
+import os
 import streamlit as st
 from ui.chat_ui import render_chat
 from services.chatbot_service import chat
@@ -7,6 +8,13 @@ from ui.profile_ui import render_profile_form
 from services.email_service import enviar_email_cuidador
 from services.sheets_service import registrar_chat, registrar_perfil
 from services.audio_service import transcribir_audio, texto_a_audio
+
+os.makedirs("database", exist_ok=True)
+
+if not os.path.exists("ocr-ruc-9bb6b695ec5d.json"):
+    if "GCP_CREDENTIALS" in st.secrets:
+        with open("ocr-ruc-9bb6b695ec5d.json", "w") as f:
+            f.write(st.secrets["GCP_CREDENTIALS"])
 
 create_tables()
 
