@@ -25,7 +25,7 @@ def registrar_chat(rol, mensaje):
 
         return True
     except Exception as e:
-        print(f"Error al conectar con Sheets (Chat): {e}")
+        st.error(f"Error exacto al conectar con Sheets (Chat): {e}")
         return False
 
 def registrar_perfil(nombre, edad, medicamentos):
@@ -42,5 +42,5 @@ def registrar_perfil(nombre, edad, medicamentos):
 
         return True
     except Exception as e:
-        print(f"Error al conectar con Sheets (Perfil): {e}")
+        st.error(f"Error exacto al conectar con Sheets (Perfil): {e}")
         return False
