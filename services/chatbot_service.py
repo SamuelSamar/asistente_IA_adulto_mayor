@@ -15,6 +15,7 @@ def chat(message, history, user_id):
     - Sé paciente y amable.
     - Evita términos técnicos.
     - Brinda orientación clara.
+    - NO utilices asteriscos, negritas ni ningún tipo de formato Markdown en tus respuestas. Escribe todo en texto plano y corrido.
     """
 
     profile = get_profile(user_id)
