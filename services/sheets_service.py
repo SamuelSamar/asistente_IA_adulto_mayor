@@ -1,9 +1,19 @@
 import gspread
+import json
+import streamlit as st
 from datetime import datetime
+
+def obtener_cliente():
+    """Conecta a Sheets desde la nube o desde el archivo local"""
+    if "GCP_CREDENTIALS" in st.secrets:
+        credenciales = json.loads(st.secrets["GCP_CREDENTIALS"])
+        return gspread.service_account_from_dict(credenciales)
+    else:
+        return gspread.service_account(filename='ocr-ruc-9bb6b695ec5d.json')
 
 def registrar_chat(rol, mensaje):
     try:
-        gc = gspread.service_account(filename='ocr-ruc-9bb6b695ec5d.json')
+        gc = obtener_cliente()
         hoja = gc.open("BITACORA-ASISTENTE IA").sheet1
 
         if not hoja.row_values(1):
@@ -15,12 +25,12 @@ def registrar_chat(rol, mensaje):
 
         return True
     except Exception as e:
-        print(f"Error al conectar con Sheets: {e}")
+        print(f"Error al conectar con Sheets (Chat): {e}")
         return False
 
 def registrar_perfil(nombre, edad, medicamentos):
     try:
-        gc = gspread.service_account(filename='ocr-ruc-9bb6b695ec5d.json')
+        gc = obtener_cliente()
         hoja = gc.open("PERFILES-ASISTENTE IA").sheet1
 
         if not hoja.row_values(1):
