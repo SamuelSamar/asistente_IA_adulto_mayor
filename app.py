@@ -20,7 +20,10 @@ create_tables()
 
 st.set_page_config(page_title="Asistente IA", page_icon="🤖")
 
-user_id = get_or_create_user()
+if "nombre_usuario" not in st.session_state:
+    st.session_state.nombre_usuario = "Carlos"
+
+user_id = get_or_create_user(st.session_state.nombre_usuario)
 
 st.sidebar.header("Notificar al Cuidador")
 correo_familiar = st.sidebar.text_input("Correo del familiar cuidador:")
@@ -29,6 +32,9 @@ perfil = render_profile_form()
 
 if perfil["guardar"]:
     nombre_final = perfil["nombre"] if perfil["nombre"] else "Adulto Mayor"
+
+    st.session_state.nombre_usuario = nombre_final
+    
     user_id = get_or_create_user(nombre_final)
 
     save_profile(user_id, perfil["age"], perfil["medications"])
