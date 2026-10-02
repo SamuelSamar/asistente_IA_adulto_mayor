@@ -62,3 +62,4 @@ Una vez configurado todo, levanta la aplicación con Streamlit:
 ```bash
 streamlit run app.py
 ```
+Link del proyecto desplegado en streamlit community cloud: https://asistenteiaadultomayor-3m8umlaw8sjtetugfkhbvk.streamlit.app/
